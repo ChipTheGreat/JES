@@ -20,5 +20,6 @@ public class Main{
 		window.setTitle("Feel The Thunder");
 
 		window.setLocationRelativeTo(null);
+		gamepanel.startGameThread();
 	}
 }

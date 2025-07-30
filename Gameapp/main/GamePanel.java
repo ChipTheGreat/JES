@@ -1,7 +1,6 @@
 package main;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
 
 import javax.swing.JPanel;
 
@@ -14,7 +13,7 @@ public class GamePanel extends JPanel implements Runnable{
 	final int finalTileSize = tilesize * scaler;
 
 	final int amountOfVerticalTiles = 10;
-	final int amountOfHorizontalTiles = 14;
+	final int amountOfHorizontalTiles = 16;
 
 	final int ScreenWidth = finalTileSize * amountOfHorizontalTiles;
 	final int ScreenHeight = finalTileSize * amountOfVerticalTiles;
@@ -33,8 +32,29 @@ public class GamePanel extends JPanel implements Runnable{
 		gameThread = new Thread(this);
 		gameThread.start();	
 	}
-	@override	
+	@Override	
 	public void run(){
-			
+		while(gameThread != null ){
+			//TODO 
+			// UPDATE THE GAMES INFORMATIONS ETC
+			update();
+			// DRAW THE SCREEN WITH NEW DATA OR UPDATE THE OLD ONES
+			repaint();
+			}			
+	} 
+	public void update(){
+		//Update infos in this methode	
 	}
+	public void paintComponent(Graphics g){
+		//Draw objects and sprites here
+		super.paintComponent(g);
+		Graphics gx2d = (Graphics2D)g;
+
+		gx2d.setColor(Color.white);
+		gx2d.fillRect(100, 100, finalTileSize, finalTileSize);
+
+		gx2d.dispose();
+	}
+	
+
 }
